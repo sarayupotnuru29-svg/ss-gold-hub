@@ -25,7 +25,7 @@ const whyChoose = [
   { icon: Shield, title: "Transparent Process", desc: "No hidden charges. Every step is visible to you." },
   { icon: Award, title: "Best Market Rates", desc: "We offer prices based on live MCX gold rates." },
   { icon: Zap, title: "Instant Payment", desc: "Get paid immediately via cash or bank transfer." },
-  { icon: Users, title: "Trusted by Thousands", desc: "Over 5000+ satisfied customers across the region." },
+  { icon: Users, title: "Doorstep Service", desc: "We come to your location anywhere in TS & AP." },
 ];
 
 const process = [
