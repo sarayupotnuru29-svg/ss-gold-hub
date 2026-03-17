@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { Shield, Award, Zap, Users, CheckCircle, ArrowRight } from "lucide-react";
+import { Shield, Award, Zap, Users, CheckCircle, ArrowRight, MapPin, TrendingUp, Clock, Wallet, Eye, Star } from "lucide-react";
 import AnimatedSection from "@/components/AnimatedSection";
 import heroBg from "@/assets/images/hero/hero-bg.jpg";
 import goldBuying from "@/assets/images/services/gold-buying.jpg";
@@ -34,6 +34,21 @@ const process = [
   { step: "03", title: "Get Advance Amount", desc: "Receive an advance payment to help release your gold from the bank or finance company." },
   { step: "04", title: "Purity Test", desc: "Professional purity testing of your gold to determine the exact market value and grade." },
   { step: "05", title: "Receive Balance Amount", desc: "Get instant payment for the balance amount via cash or direct bank transfer." },
+];
+
+const detailedFeatures = [
+  { icon: MapPin, title: "Doorstep Service", desc: "We come to your location for evaluation and verification. No need to travel." },
+  { icon: TrendingUp, title: "Best Market Gold Price", desc: "Get the highest market rates based on live gold prices. Fair and transparent pricing." },
+  { icon: Clock, title: "No Waiting Time", desc: "Quick processing and instant decisions. Your time is valuable to us." },
+  { icon: Wallet, title: "Instant Payment", desc: "Receive payment immediately via cash or direct bank transfer on the spot." },
+  { icon: Eye, title: "Transparent Process", desc: "Complete transparency at every step. No hidden charges or surprises." },
+];
+
+const trustStats = [
+  { value: "100%", label: "Customer Satisfaction" },
+  { value: "24/7", label: "Available Service" },
+  { value: "30min", label: "Quick Process" },
+  { value: "5000+", label: "Happy Customers" },
 ];
 
 const Index = () => {
@@ -132,7 +147,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* WHY CHOOSE US */}
+      {/* WHY CHOOSE US - SUMMARY */}
       <section className="py-24 md:py-32 section-darker">
         <div className="max-w-7xl mx-auto px-6">
           <AnimatedSection className="text-center mb-16">
@@ -169,7 +184,7 @@ const Index = () => {
             {process.map((item, i) => (
               <AnimatedSection key={i} delay={i * 0.15} direction="up">
                 <div className="relative p-8 text-center">
-                  <div className="text-6xl font-serif font-bold text-primary/20 mb-4">{item.step}</div>
+                  <div className="text-6xl font-serif font-bold text-primary/40 drop-shadow-sm mb-4">{item.step}</div>
                   <h3 className="text-xl font-serif mb-3">{item.title}</h3>
                   <p className="text-muted-foreground text-sm font-sans">{item.desc}</p>
                   {i < process.length - 1 && (
@@ -178,6 +193,65 @@ const Index = () => {
                 </div>
               </AnimatedSection>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* DETAILED WHY CHOOSE SECTION (From Image) */}
+      <section className="py-24 md:py-32 section-darker border-t border-primary/10">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            {/* Left side: Content & Features */}
+            <AnimatedSection direction="left">
+              <div className="mb-10">
+                <h2 className="text-4xl md:text-5xl font-serif mb-6 leading-tight">
+                  Why Choose <span className="text-primary">SS Gold Hub?</span>
+                </h2>
+                <p className="text-muted-foreground font-sans leading-relaxed">
+                  We are committed to providing the best gold release and buying services across Telangana and Andhra Pradesh with unmatched customer service and competitive pricing.
+                </p>
+              </div>
+
+              <div className="space-y-8">
+                {detailedFeatures.map((f, i) => (
+                  <div key={i} className="flex gap-4">
+                    <div className="mt-1 bg-primary/10 p-2 h-fit gold-border">
+                      <f.icon className="w-5 h-5 text-primary" />
+                    </div>
+                    <div>
+                      <h4 className="font-serif text-xl mb-1">{f.title}</h4>
+                      <p className="text-muted-foreground text-sm font-sans leading-relaxed">{f.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </AnimatedSection>
+
+            {/* Right side: Stats & Trust Card */}
+            <AnimatedSection direction="right">
+              <div className="grid grid-cols-2 gap-4 mb-8">
+                {trustStats.map((stat, i) => (
+                  <div key={i} className="p-6 bg-card gold-border text-center">
+                    <div className="text-2xl font-serif font-bold text-primary mb-1">{stat.value}</div>
+                    <div className="text-[10px] uppercase tracking-widest text-muted-foreground">{stat.label}</div>
+                  </div>
+                ))}
+              </div>
+
+              {/* Trust Badge Card */}
+              <div className="p-8 bg-gradient-to-br from-primary to-primary-foreground/20 gold-border text-background shadow-2xl">
+                <h3 className="text-2xl font-serif font-bold mb-4">Trusted by Thousands</h3>
+                <p className="text-sm font-sans mb-6 opacity-90">
+                  Serving customers across Telangana and Andhra Pradesh with excellence.
+                </p>
+                <div className="flex gap-1 mb-2">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="w-5 h-5 fill-current" />
+                  ))}
+                </div>
+                <span className="text-xs font-bold uppercase tracking-widest opacity-80">(5-Star Rating)</span>
+              </div>
+            </AnimatedSection>
           </div>
         </div>
       </section>

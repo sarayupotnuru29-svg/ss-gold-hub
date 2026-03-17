@@ -1,15 +1,29 @@
 import { useState } from "react";
-import { Phone, Mail, MapPin, Clock, Send, Facebook, Instagram, Linkedin, Calendar } from "lucide-react";
+import { Phone, Mail, MapPin, Clock, Facebook, Instagram, Linkedin, Calendar, Upload, Send, Lock, PhoneCall, Home, BadgeCheck } from "lucide-react";
 import AnimatedSection from "@/components/AnimatedSection";
 import locationImg from "@/assets/images/contact/location.jpg";
 
 const Contact = () => {
-  const [formData, setFormData] = useState({ name: "", phone: "", email: "", service: "", message: "" });
+  const [formData, setFormData] = useState({ 
+    name: "", 
+    phone: "", 
+    city: "", 
+    loanAmount: "",
+    pledgeTicket: "" 
+  });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    alert("Thank you for your inquiry! We will get back to you shortly.");
-    setFormData({ name: "", phone: "", email: "", service: "", message: "" });
+    
+    // Construct WhatsApp message
+    const whatsappNumber = "918121865151"; 
+    const message = `Hello SS Gold Hub, I would like a Free Consultation.%0A%0A` +
+                    `*Name:* ${formData.name}%0A` +
+                    `*Phone:* ${formData.phone}%0A` +
+                    `*City:* ${formData.city}%0A` +
+                    `*Approximate Loan Amount:* ${formData.loanAmount}`;
+    
+    window.open(`https://wa.me/${whatsappNumber}?text=${message}`, "_blank");
   };
 
   return (
@@ -130,69 +144,67 @@ const Contact = () => {
             {/* Form */}
             <AnimatedSection direction="right">
               <div className="p-8 md:p-10 gold-border bg-card">
-                <h2 className="text-3xl font-serif mb-2">Send Us a Message</h2>
-                <p className="text-muted-foreground font-sans text-sm mb-8">Fill in the form and we'll respond within 24 hours.</p>
+                <h2 className="text-3xl font-serif mb-2">Get Your <span className="text-primary italic">Free Consultation</span></h2>
+                <p className="text-muted-foreground font-sans text-sm mb-8">Fill in your details and we'll get back to you within 30 minutes</p>
 
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div>
-                    <label className="block text-xs uppercase tracking-widest font-sans font-bold mb-2">Full Name</label>
+                    <label className="block text-xs uppercase tracking-widest font-sans font-bold mb-2">Full Name *</label>
                     <input
                       type="text"
                       required
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                       className="w-full bg-muted border border-primary/10 px-4 py-3 text-foreground font-sans text-sm focus:outline-none focus:border-primary/50 transition-colors"
-                      placeholder="Enter your name"
+                      placeholder="Enter your full name"
                     />
                   </div>
                   <div>
-                    <label className="block text-xs uppercase tracking-widest font-sans font-bold mb-2">Phone Number</label>
+                    <label className="block text-xs uppercase tracking-widest font-sans font-bold mb-2">Phone Number *</label>
                     <input
                       type="tel"
                       required
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                       className="w-full bg-muted border border-primary/10 px-4 py-3 text-foreground font-sans text-sm focus:outline-none focus:border-primary/50 transition-colors"
-                      placeholder="Enter your phone number"
+                      placeholder="+91 9876543210"
                     />
                   </div>
                   <div>
-                    <label className="block text-xs uppercase tracking-widest font-sans font-bold mb-2">Email Address</label>
+                    <label className="block text-xs uppercase tracking-widest font-sans font-bold mb-2">City *</label>
                     <input
-                      type="email"
-                      value={formData.email}
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                      type="text"
+                      required
+                      value={formData.city}
+                      onChange={(e) => setFormData({ ...formData, city: e.target.value })}
                       className="w-full bg-muted border border-primary/10 px-4 py-3 text-foreground font-sans text-sm focus:outline-none focus:border-primary/50 transition-colors"
-                      placeholder="Enter your email"
+                      placeholder="Enter your city"
                     />
                   </div>
                   <div>
-                    <label className="block text-xs uppercase tracking-widest font-sans font-bold mb-2">Service Required <span className="text-destructive">*</span></label>
-                    <select
-                      required
-                      value={formData.service}
-                      onChange={(e) => setFormData({ ...formData, service: e.target.value })}
-                      className="w-full bg-muted border border-primary/10 px-4 py-3 text-foreground font-sans text-sm focus:outline-none focus:border-primary/50 transition-colors appearance-none cursor-pointer"
-                    >
-                      <option value="" disabled>Select a service</option>
-                      <option value="gold-buying">Gold Buying</option>
-                      <option value="pledged-gold-release">Pledged Gold Release</option>
-                      <option value="gold-valuation">Gold Valuation</option>
-                    </select>
+                    <label className="block text-xs uppercase tracking-widest font-sans font-bold mb-2">Approximate Loan Amount</label>
+                    <input
+                      type="text"
+                      value={formData.loanAmount}
+                      onChange={(e) => setFormData({ ...formData, loanAmount: e.target.value })}
+                      className="w-full bg-muted border border-primary/10 px-4 py-3 text-foreground font-sans text-sm focus:outline-none focus:border-primary/50 transition-colors"
+                      placeholder="₹ 1,00,000"
+                    />
                   </div>
                   <div>
-                    <label className="block text-xs uppercase tracking-widest font-sans font-bold mb-2">Message</label>
-                    <textarea
-                      required
-                      rows={4}
-                      value={formData.message}
-                      onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                      className="w-full bg-muted border border-primary/10 px-4 py-3 text-foreground font-sans text-sm focus:outline-none focus:border-primary/50 transition-colors resize-none"
-                      placeholder="Tell us about your gold..."
-                    />
+                    <label className="block text-xs uppercase tracking-widest font-sans font-bold mb-2">Upload Pledge Ticket (Optional)</label>
+                    <div className="flex items-center justify-center w-full">
+                      <label className="flex flex-col items-center justify-center w-full h-32 border-2 border-primary/10 border-dashed cursor-pointer bg-muted hover:bg-muted/80 transition-colors">
+                        <div className="flex flex-col items-center justify-center pt-5 pb-6">
+                          <Upload className="w-8 h-8 text-primary/40 mb-2" />
+                          <p className="text-sm text-muted-foreground font-sans">Click to upload</p>
+                        </div>
+                        <input type="file" className="hidden" />
+                      </label>
+                    </div>
                   </div>
                   <button type="submit" className="btn-gold w-full flex items-center justify-center gap-2">
-                    <Send className="w-4 h-4" /> Send Message
+                    Send Message <Send className="w-4 h-4 rotate-[-45deg]" />
                   </button>
                 </form>
               </div>
@@ -201,23 +213,61 @@ const Contact = () => {
         </div>
       </section>
 
-      {/* Map */}
-      <section className="py-16 section-darker">
+      {/* Next Steps Section (Replacing Maps) */}
+      <section className="py-24 section-darker">
         <div className="max-w-7xl mx-auto px-6">
-          <AnimatedSection>
-            <div className="gold-border overflow-hidden">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.3041543584256!2d78.44726!3d17.4296!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb90c9a8c5e3a1%3A0x2b0a1f1f1f1f1f1f!2sSrinivasa%20Plaza%2C%20Sri%20Nagar%20Colony%20Main%20Rd%2C%20Punjagutta%2C%20Hyderabad%2C%20Telangana%20500082!5e0!3m2!1sen!2sin!4v1710000000000!5m2!1sen!2sin"
-                width="100%"
-                height="450"
-                style={{ border: 0, filter: "invert(90%) hue-rotate(180deg)" }}
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                title="SS Gold Hub - 202 Srinivasa Plaza, Punjagutta, Hyderabad"
-              />
-            </div>
-          </AnimatedSection>
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            {/* Steps Column */}
+            <AnimatedSection direction="left">
+              <span className="label-gold mb-4 block w-fit">Process</span>
+              <h2 className="text-4xl font-serif mb-12">What Happens Next?</h2>
+              
+              <div className="space-y-10">
+                <div className="flex gap-6">
+                  <div className="w-14 h-14 bg-primary/10 border border-primary/30 flex items-center justify-center shrink-0">
+                    <PhoneCall className="w-6 h-6 text-primary" />
+                  </div>
+                  <div>
+                    <h4 className="text-xl font-serif mb-2">Instant Response</h4>
+                    <p className="text-muted-foreground font-sans">Our team will call you within 30 minutes to discuss your requirements.</p>
+                  </div>
+                </div>
+
+                <div className="flex gap-6">
+                  <div className="w-14 h-14 bg-primary/10 border border-primary/30 flex items-center justify-center shrink-0">
+                    <Home className="w-6 h-6 text-primary" />
+                  </div>
+                  <div>
+                    <h4 className="text-xl font-serif mb-2">Doorstep Service</h4>
+                    <p className="text-muted-foreground font-sans">We'll schedule a doorstep visit at your convenience for a hassle-free experience.</p>
+                  </div>
+                </div>
+
+                <div className="flex gap-6">
+                  <div className="w-14 h-14 bg-primary/10 border border-primary/30 flex items-center justify-center shrink-0">
+                    <BadgeCheck className="w-6 h-6 text-primary" />
+                  </div>
+                  <div>
+                    <h4 className="text-xl font-serif mb-2">Quick Settlement</h4>
+                    <p className="text-muted-foreground font-sans">Complete verification and get instant payment for your gold.</p>
+                  </div>
+                </div>
+              </div>
+            </AnimatedSection>
+
+            {/* Security Column */}
+            <AnimatedSection direction="right">
+              <div className="p-10 gold-border bg-card gold-glow text-center">
+                <div className="w-20 h-20 bg-primary/10 border border-primary/20 flex items-center justify-center mx-auto mb-6 rounded-full">
+                  <Lock className="w-10 h-10 text-primary" />
+                </div>
+                <h3 className="text-2xl font-serif mb-4">100% Secure & Confidential</h3>
+                <p className="text-muted-foreground font-sans max-w-sm mx-auto">
+                  Your information is safe with us and will never be shared. We prioritize your privacy at every step.
+                </p>
+              </div>
+            </AnimatedSection>
+          </div>
         </div>
       </section>
     </>
