@@ -25,14 +25,15 @@ const whyChoose = [
   { icon: Shield, title: "Transparent Process", desc: "No hidden charges. Every step is visible to you." },
   { icon: Award, title: "Best Market Rates", desc: "We offer prices based on live MCX gold rates." },
   { icon: Zap, title: "Instant Payment", desc: "Get paid immediately via cash or bank transfer." },
-  { icon: Users, title: "Trusted by Thousands", desc: "Over 5000+ satisfied customers across the region." },
+  { icon: Users, title: "Doorstep Service", desc: "We come to your location anywhere in TS & AP." },
 ];
 
 const process = [
-  { step: "01", title: "Contact Us", desc: "Call or visit our office for a free consultation." },
-  { step: "02", title: "Gold Evaluation", desc: "Our experts test purity using advanced XRF technology." },
-  { step: "03", title: "Get Best Price", desc: "We offer the best price based on live market rates." },
-  { step: "04", title: "Instant Payment", desc: "Receive payment immediately via your preferred method." },
+  { step: "01", title: "Evaluation of Pledge Ticket", desc: "Share your pledge ticket details with us for initial evaluation and loan amount verification." },
+  { step: "02", title: "Physical Verification", desc: "Our team visits your doorstep for physical verification and documentation of your pledged gold." },
+  { step: "03", title: "Get Advance Amount", desc: "Receive an advance payment to help release your gold from the bank or finance company." },
+  { step: "04", title: "Purity Test", desc: "Professional purity testing of your gold to determine the exact market value and grade." },
+  { step: "05", title: "Receive Balance Amount", desc: "Get instant payment for the balance amount via cash or direct bank transfer." },
 ];
 
 const Index = () => {
@@ -52,6 +53,7 @@ const Index = () => {
             transition={{ duration: 0.8, ease: [0.23, 1, 0.32, 1] }}
             className="max-w-2xl"
           >
+            <span className="label-gold mb-4 block w-fit">Serving Telangana &amp; Andhra Pradesh</span>
             <span className="label-gold mb-6 block w-fit">Trusted Gold Buyers</span>
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif leading-[0.9] mb-8">
               Sell Your Gold{" "}
@@ -163,7 +165,7 @@ const Index = () => {
             <h2 className="text-4xl md:text-5xl font-serif">Our Simple Process</h2>
           </AnimatedSection>
 
-          <div className="grid md:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-5 gap-6">
             {process.map((item, i) => (
               <AnimatedSection key={i} delay={i * 0.15} direction="up">
                 <div className="relative p-8 text-center">
