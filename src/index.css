@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -7,48 +7,49 @@
 @layer base {
   :root {
     --background: 0 0% 3%;
-    --foreground: 0 0% 98%;
+    --foreground: 0 0% 96%;
 
-    --card: 0 0% 6%;
-    --card-foreground: 0 0% 98%;
+    --card: 0 0% 7%;
+    --card-foreground: 0 0% 96%;
 
-    --popover: 0 0% 6%;
-    --popover-foreground: 0 0% 98%;
+    --popover: 0 0% 7%;
+    --popover-foreground: 0 0% 96%;
 
-    --primary: 45 60% 52%;
+    --primary: 43 72% 58%;
     --primary-foreground: 0 0% 3%;
 
-    --secondary: 0 0% 10%;
-    --secondary-foreground: 0 0% 98%;
+    --secondary: 0 0% 11%;
+    --secondary-foreground: 0 0% 96%;
 
-    --muted: 0 0% 15%;
-    --muted-foreground: 0 0% 64%;
+    --muted: 0 0% 14%;
+    --muted-foreground: 0 0% 60%;
 
-    --accent: 45 100% 58%;
+    --accent: 43 90% 62%;
     --accent-foreground: 0 0% 3%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 45 60% 52% / 0.15;
-    --input: 0 0% 15%;
-    --ring: 45 60% 52%;
+    --border: 43 72% 58% / 0.12;
+    --input: 0 0% 14%;
+    --ring: 43 72% 58%;
 
-    --radius: 0.25rem;
+    --radius: 0.5rem;
 
     --crimson: 0 72% 20%;
     --crimson-foreground: 0 0% 98%;
 
-    --gold-glow: 45 80% 60%;
+    --gold-glow: 43 85% 65%;
+    --gold-bright: 43 100% 70%;
 
     --sidebar-background: 0 0% 5%;
     --sidebar-foreground: 0 0% 90%;
-    --sidebar-primary: 45 60% 52%;
+    --sidebar-primary: 43 72% 58%;
     --sidebar-primary-foreground: 0 0% 3%;
     --sidebar-accent: 0 0% 12%;
     --sidebar-accent-foreground: 0 0% 90%;
     --sidebar-border: 0 0% 15%;
-    --sidebar-ring: 45 60% 52%;
+    --sidebar-ring: 43 72% 58%;
   }
 }
 
@@ -59,6 +60,8 @@
 
   body {
     @apply bg-background text-foreground font-sans antialiased;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   html {
@@ -66,25 +69,30 @@
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-serif;
+    @apply font-serif tracking-tight;
+  }
+
+  p {
+    @apply leading-relaxed;
   }
 }
 
 @layer components {
   .gold-gradient-text {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary via-accent to-primary;
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, hsl(43 90% 62%), hsl(43 100% 70%), hsl(43 90% 62%));
   }
 
   .gold-border {
-    @apply border border-primary/20;
+    @apply border border-primary/15 rounded-lg;
   }
 
   .gold-glow {
-    box-shadow: 0 0 30px hsl(45 60% 52% / 0.15), 0 0 60px hsl(45 60% 52% / 0.05);
+    box-shadow: 0 0 30px hsl(43 72% 58% / 0.12), 0 0 60px hsl(43 72% 58% / 0.04);
   }
 
   .gold-glow-hover:hover {
-    box-shadow: 0 0 40px hsl(45 60% 52% / 0.25), 0 0 80px hsl(45 60% 52% / 0.1);
+    box-shadow: 0 0 40px hsl(43 72% 58% / 0.2), 0 0 80px hsl(43 72% 58% / 0.08);
   }
 
   .section-dark {
@@ -92,11 +100,19 @@
   }
 
   .section-darker {
-    background-color: hsl(0 0% 4%);
+    background-color: hsl(0 0% 4.5%);
+  }
+
+  .section-elevated {
+    background-color: hsl(0 0% 6%);
   }
 
   .text-gold {
     color: hsl(var(--primary));
+  }
+
+  .text-gold-bright {
+    color: hsl(var(--gold-bright));
   }
 
   .bg-gold {
@@ -104,16 +120,16 @@
   }
 
   .btn-gold {
-    @apply px-8 py-4 bg-primary text-primary-foreground font-bold uppercase tracking-widest text-sm transition-all duration-300;
+    @apply px-8 py-4 bg-primary text-primary-foreground font-semibold uppercase tracking-wider text-sm transition-all duration-300 rounded-lg;
   }
 
   .btn-gold:hover {
     @apply bg-accent;
-    box-shadow: 0 0 30px hsl(45 60% 52% / 0.3);
+    box-shadow: 0 0 30px hsl(43 72% 58% / 0.3);
   }
 
   .btn-outline-gold {
-    @apply px-8 py-4 border border-primary/40 text-primary font-bold uppercase tracking-widest text-sm transition-all duration-300;
+    @apply px-8 py-4 border border-primary/40 text-primary font-semibold uppercase tracking-wider text-sm transition-all duration-300 rounded-lg;
   }
 
   .btn-outline-gold:hover {
@@ -129,7 +145,7 @@
   }
 
   .label-gold {
-    @apply inline-block px-3 py-1 border border-primary/50 text-primary text-xs tracking-[0.3em] uppercase;
+    @apply inline-block px-4 py-1.5 border border-primary/40 text-primary text-xs tracking-[0.3em] uppercase font-medium rounded-full;
   }
 }
 

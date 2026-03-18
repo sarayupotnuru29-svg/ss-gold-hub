@@ -16,21 +16,21 @@ const Navbar = () => {
   const location = useLocation();
 
   return (
-    <nav className="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-xl border-b border-primary/10">
+    <nav className="fixed top-0 w-full z-50 bg-background/90 backdrop-blur-xl border-b border-primary/10">
       <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
         <Link to="/" className="flex items-center gap-3">
-          <img src={logo} alt="SS Gold Hub" className="w-12 h-12 object-contain" />
-          <span className="text-xl font-serif font-bold tracking-tight uppercase">
+          <img src={logo} alt="SS Gold Hub" className="w-14 h-14 object-contain" />
+          <span className="text-xl font-serif font-bold tracking-tight">
             SS Gold <span className="text-primary">Hub</span>
           </span>
         </Link>
 
-        <div className="hidden md:flex items-center gap-8 text-sm font-medium tracking-widest uppercase text-muted-foreground">
+        <div className="hidden md:flex items-center gap-8 text-sm font-medium tracking-wide text-muted-foreground">
           {navItems.map((item) => (
             <Link
               key={item.label}
               to={item.path}
-              className={`transition-colors hover:text-primary ${location.pathname === item.path ? "text-primary" : ""}`}
+              className={`transition-colors hover:text-primary ${location.pathname === item.path ? "text-primary font-semibold" : ""}`}
             >
               {item.label}
             </Link>
@@ -39,11 +39,11 @@ const Navbar = () => {
 
         <a
           href="tel:8121865151"
-          className="hidden md:flex items-center gap-2 group relative px-6 py-2.5 overflow-hidden border border-primary/50 transition-all duration-300 hover:border-primary"
+          className="hidden md:flex items-center gap-2 group relative px-6 py-2.5 overflow-hidden border border-primary/50 rounded-lg transition-all duration-300 hover:border-primary"
         >
-          <div className="absolute inset-0 bg-primary translate-y-[101%] group-hover:translate-y-0 transition-transform duration-300" />
+          <div className="absolute inset-0 bg-primary translate-y-[101%] group-hover:translate-y-0 transition-transform duration-300 rounded-lg" />
           <Phone className="w-4 h-4 relative z-10 text-primary group-hover:text-primary-foreground transition-colors" />
-          <span className="relative z-10 text-primary group-hover:text-primary-foreground font-bold text-sm transition-colors">
+          <span className="relative z-10 text-primary group-hover:text-primary-foreground font-semibold text-sm transition-colors">
             8121865151
           </span>
         </a>
@@ -66,7 +66,7 @@ const Navbar = () => {
                 key={item.label}
                 to={item.path}
                 onClick={() => setMobileOpen(false)}
-                className={`text-sm font-medium tracking-widest uppercase transition-colors hover:text-primary ${
+                className={`text-sm font-medium tracking-wide transition-colors hover:text-primary ${
                   location.pathname === item.path ? "text-primary" : "text-muted-foreground"
                 }`}
               >
@@ -75,7 +75,7 @@ const Navbar = () => {
             ))}
             <a
               href="tel:8121865151"
-              className="flex items-center gap-2 text-primary font-bold text-sm mt-2"
+              className="flex items-center gap-2 text-primary font-semibold text-sm mt-2"
             >
               <Phone className="w-4 h-4" />
               Call Now → 8121865151

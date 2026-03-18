@@ -14,8 +14,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
-        sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+        serif: ['"Playfair Display"', 'Georgia', 'serif'],
+        sans: ['"Inter"', 'system-ui', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -55,6 +55,7 @@ export default {
           DEFAULT: "hsl(var(--crimson))",
           foreground: "hsl(var(--crimson-foreground))",
         },
+        "gold-bright": "hsl(var(--gold-bright))",
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",
@@ -101,8 +102,8 @@ export default {
           "100%": { backgroundPosition: "200% 0" },
         },
         "gold-pulse": {
-          "0%, 100%": { boxShadow: "0 0 20px hsl(45 60% 52% / 0.2)" },
-          "50%": { boxShadow: "0 0 40px hsl(45 60% 52% / 0.4)" },
+          "0%, 100%": { boxShadow: "0 0 20px hsl(43 72% 58% / 0.2)" },
+          "50%": { boxShadow: "0 0 40px hsl(43 72% 58% / 0.4)" },
         },
       },
       animation: {
