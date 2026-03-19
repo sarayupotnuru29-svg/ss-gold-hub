@@ -31,7 +31,7 @@ const Contact = () => {
 
   return (
     <>
-      {/* Hero — left-aligned with map teaser */}
+      {/* Hero — left-aligned */}
       <section className="relative py-36 md:py-44 overflow-hidden">
         <div className="absolute inset-0">
           <img src={locationImg} className="w-full h-full object-cover" alt="Our location" loading="eager" />
@@ -206,28 +206,6 @@ const Contact = () => {
                 </form>
               </div>
             </AnimatedSection>
-          </div>
-        </div>
-      </section>
-
-      {/* Google Map */}
-      <section className="py-16 section-elevated">
-        <div className="max-w-7xl mx-auto px-6">
-          <AnimatedSection className="text-center mb-10">
-            <h2 className="text-3xl font-serif mb-3">Find Us Here</h2>
-            <p className="text-muted-foreground text-sm">202, Srinivasa Plaza, Sri Nagar Colony Main Road, Punjagutta – 500082</p>
-          </AnimatedSection>
-          <div className="gold-border overflow-hidden">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.7!2d78.4483!3d17.4239!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb97d1b8d9b3a7%3A0x8e3e3e3e3e3e3e3e!2sSrinivasa%20Plaza%2C%20Sri%20Nagar%20Colony%20Main%20Rd%2C%20Punjagutta%2C%20Hyderabad%2C%20Telangana%20500082!5e0!3m2!1sen!2sin!4v1710000000000"
-              width="100%"
-              height="400"
-              style={{ border: 0, filter: "invert(90%) hue-rotate(180deg)" }}
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              title="SS Gold Hub Location"
-            />
           </div>
         </div>
       </section>

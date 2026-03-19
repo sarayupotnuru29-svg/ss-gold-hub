@@ -66,13 +66,12 @@ const Index = () => {
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: [0.23, 1, 0.32, 1] }}
-            className="max-w-2xl"
+            className="max-w-4xl"
           >
             <span className="label-gold mb-4 block w-fit">Serving Telangana &amp; Andhra Pradesh</span>
             <span className="label-gold mb-8 block w-fit">Trusted Gold Buyers</span>
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif leading-[0.95] mb-8">
-              Sell Your Gold{" "}
-              <span className="gold-gradient-text italic block mt-3">For Instant Cash</span>
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif leading-tight mb-8">
+              Sell Your Gold <span className="gold-gradient-text">For Instant Cash</span>
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground mb-10 leading-relaxed max-w-lg">
               Get the best market value with a transparent, secure, and professional valuation process.
@@ -241,8 +240,9 @@ const Index = () => {
                   Serving customers across Telangana and Andhra Pradesh with excellence.
                 </p>
                 <div className="flex gap-1 mb-2">
+                  {/* Updated Star color to Red */}
                   {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-5 h-5 fill-current" />
+                    <Star key={i} className="w-5 h-5 fill-current text-red-500" />
                   ))}
                 </div>
                 <span className="text-xs font-bold uppercase tracking-wider opacity-80">(5-Star Rating)</span>
