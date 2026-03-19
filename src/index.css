@@ -127,6 +127,18 @@
     background-color: hsl(0 0% 6%);
   }
 
+  .theme-light .section-elevated {
+    background-color: hsl(40 15% 93%);
+  }
+
+  .theme-light .gold-border {
+    @apply border-border shadow-sm;
+  }
+
+  .theme-light .gold-glow {
+    box-shadow: 0 4px 20px hsl(43 72% 42% / 0.1);
+  }
+
   .text-gold {
     color: hsl(var(--primary));
   }
